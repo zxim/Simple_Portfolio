@@ -13,8 +13,14 @@
   },
 
   "workExperience": [
-      {
+    {
       "id": 0,
+      "name": "구리고등학교",
+      "period": ["2016. 03", "2019. 01"],
+      "description": "인문계. 이과 졸업"
+    },
+    {
+      "id": 1,
       "name": "수원대학교 정보보호학과",
       "period": ["2019. 03", "2025. 02"],
       "description": "정보보안 전공자로서 시스템 보안, 네트워크 보안 등 전반적인 보안 이론과 실습을 습득하고 다양한 프로젝트와 활동에 참여함."
@@ -34,7 +40,7 @@
     },
     {
       "id": 1,
-      "name": "FARV",
+      "name": "FARM",
       "description": "2023 한이음 ICT멘토링 공모전. 카메라로 과일을 인식하고 AR로 품종 및 영양 성분을 시각적으로 제공하는 앱 개발. Android Studio 기반으로 ARCore, OpenCV를 연동하여 프론트 개발 및 AR 기능 구현.",
       "webUrl": "https://github.com/본인계정/fruit-ar-app",
       "repoUrl": "https://github.com/본인계정/fruit-ar-app",
