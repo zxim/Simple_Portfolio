@@ -1,44 +1,25 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-// const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
-      // NOTE: 본 템플릿은 대부분이 모노톤으로 이루어져 있습니다. primary 컬러만 수정하여 사용하시는 것을 권장드립니다.
       colors: {
+        // 회색 계열 (기존 유지)
         GRAY_LIGHT: "#f1f3f5",
         GRAY: "#adb5bd",
         GRAY_HEAVY: "#868e96",
         GRAY_EXTRAHEAVY: "#495057",
         BLACK: "#212529",
-        /**
-         * @description selection(드래그 블록)에 사용되는 컬러입니다.
-         */
-        PRIMARY_LIGHT: "#c3fae8",
 
-        /**
-         * @description 자기소개의 이름 부분, code tag의 darkmode에 사용되는 컬러입니다.
-         */
-        PRIMARY: "#12b886",
+        // 포인트 컬러: 하늘~파랑 계열
+        PRIMARY_LIGHT: "#d0ebff",   // 연한 하늘색
+        PRIMARY: "#339af0",         // 메인 파랑 
+        PRIMARY_HEAVY: "#1c7ed6",   // 진한 파랑
 
-        /**
-         * @description code tag, link hover icon에 사용되는 컬러입니다.
-         */
-        PRIMARY_HEAVY: "#087f5b",
-
-        /**
-         * @description 페이지 최상단 gradient의 시작 컬러입니다.
-         */
-        GRADIENT_FROM: "#51cf66",
-
-        /**
-         * @description 페이지 최상단 gradient의 종료 컬러입니다.
-         */
-        GRADIENT_TO: "#0c8599",
+        // 상단 그라데이션
+        GRADIENT_FROM: "#e3f2fd",   // 밝은 하늘색 (연한 시작)
+        GRADIENT_TO: "#1e3a8a",     // 남색 느낌 (짙은 종료)
       },
     },
   },
