@@ -31,7 +31,7 @@
     {
       "id": 0,
       "name": "동네친구들",
-      "description": "구글맵 및 GPS의 위치 정보를 이용하여 근처 가게의 정보를 제공하는 웹페이지 개발. LAMP스택 기반 개발 및 AWS EC2를 이용하여 배포.",
+      "description": "구글맵 및 GPS의 위치 정보를 이용하여 근처 가게의 정보 제공 및 SNS 기능의 웹페이지 개발.",
       "webUrl": "https://velog.io/@tlaals44/2022-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/businessesfriends",
       "isTeam": true,
@@ -41,9 +41,9 @@
     {
       "id": 1,
       "name": "FARM",
-      "description": "2023 한이음 ICT멘토링 공모전. 카메라로 과일을 인식하고 AR로 품종 및 영양 성분을 시각적으로 제공하는 앱 개발. Android Studio 기반으로 ARCore, OpenCV를 연동하여 프론트 개발 및 AR 기능 구현.",
-      "webUrl": "https://github.com/본인계정/fruit-ar-app",
-      "repoUrl": "https://github.com/본인계정/fruit-ar-app",
+      "description": "2023 한이음 ICT멘토링 공모전. 카메라로 과일을 인식하고 AR로 품종 및 영양 성분을 시각적으로 제공하는 앱 개발.",
+      "webUrl": "https://github.com/zxim/FarmApp-Android",
+      "repoUrl": "https://velog.io/@tlaals44/2023-%ED%95%9C%EC%9D%B4%EC%9D%8C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "isTeam": true,
       "period": ["2023. 03", "2023. 12"],
       "stack": ["Java", "Android Studio", "ARCore", "OpenCV", "MySQL"]
@@ -61,7 +61,7 @@
     {
       "id": 3,
       "name": "SIBS",
-      "description": "2024 한이음 ICT 멘토링 공모전. 인터넷 개인방송 써드파티 프로그램. 실시간 채팅을 AI를 통해 검열 및 다양한 방송 툴 제공",
+      "description": "2024 한이음 ICT 멘토링 공모전. 인터넷 개인방송 써드파티 프로그램.",
       "webUrl": "https://velog.io/@tlaals44/2024-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/SIBS",
       "isTeam": true,
@@ -91,9 +91,9 @@
     {
       "id": 6,
       "name": "AWS VPC 구조 시각화 도구",
-      "description": "Flask와 React를 활용해 AWS VPC 구성 요소를 Cytoscape.js로 시각화. boto3로 실시간 리소스를 연동하며 Suricata 기반 IDS/IPS 로그 분석을 통합.",
-      "webUrl": "https://github.com/본인계정/vpc-visualizer",
-      "repoUrl": "https://github.com/본인계정/vpc-visualizer",
+      "description": "AWS의 VPC 및 기타 토폴로지를 시각화하는 웹페이지",
+      "webUrl": "https://velog.io/@tlaals44/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
+      "repoUrl": "https://github.com/zxim/Automation-Drawing-AWS-Network-Topology",
       "isTeam": false,
       "period": ["2024. 11", "2024. 11"],
       "stack": ["React", "TypeScript", "Flask", "boto3", "Cytoscape.js", "AWS"]
@@ -111,7 +111,7 @@
         {
       "id": 8,
       "name": "협력사 기반 침해사고 분석 및 보안 솔루션 대응 프로젝트",
-      "description": "취약한 협력사 기반으로 웹해킹 및 대기업 본사 침투 시나리오. CVE-2019-0211의 Apache 권한 상승 취약점을 활용한 공격. 랜섬웨어(WannaCry)를 배포 및 분리 침해사고 분석 등 진행.",
+      "description": "취약한 협력사 기반으로 웹해킹 및 대기업 본사 침투 및 랜섬웨어(WannaCry)를 배포 및 분리 침해사고 분석 등 진행.",
       "webUrl": "https://velog.io/@tlaals44/%ED%98%84%EB%8C%80%EC%98%A4%ED%86%A0%EC%97%90%EB%B2%84-%EC%B5%9C%EC%A2%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/AutoEver_Project",
       "isTeam": true,
@@ -122,8 +122,8 @@
       "id": 9,
       "name": "YouTube TTS 브라우저 확장 프로그램",
       "description": "시각장애인을 위한 웹 접근성 확장 프로그램 개발. YouTube 영상의 제목, 업로더, 게시일 등을 TTS로 읽어주는 기능 구현 및 키보드 내비게이션 제공.",
-      "webUrl": "https://github.com/본인계정/youtube-accessibility-extension",
-      "repoUrl": "https://github.com/본인계정/youtube-accessibility-extension",
+      "webUrl": "https://velog.io/@tlaals44/%EC%8B%9C%EA%B0%81%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%9D%84-%EC%9C%84%ED%95%9C-YouTube-%EB%8F%99%EC%98%81%EC%83%81-%EC%A0%95%EB%B3%B4-%EC%9E%90%EB%8F%99-%EC%9D%8C%EC%84%B1-%EC%95%88%EB%82%B4-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8",
+      "repoUrl": "https://github.com/zxim/youtube-tts-extension",
       "isTeam": false,
       "period": ["2025. 04", "진행중"],
       "stack": ["TypeScript", "Vite", "Chrome Extension API", "Web TTS"]
