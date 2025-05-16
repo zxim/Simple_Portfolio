@@ -18,6 +18,11 @@
   h4 {
     @apply font-semibold text-2xl;
   }
+
+  h5 {
+    @apply font-semibold text-xl;
+  }
+
   a {
     @apply cursor-pointer hover:cursor-pointer;
   }
