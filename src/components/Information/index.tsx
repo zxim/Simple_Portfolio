@@ -22,7 +22,7 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
         <div className="flex flex-col gap-2">
           <h1 className="leading-[1.15]">
             안녕하세요,
-            <br /> 프론트엔드 개발자{" "}
+            <br /> 프론트엔드 엔지니어{" "}
             <span className="text-PRIMARY font-semibold">{information.name}</span>
             입니다.
           </h1>
