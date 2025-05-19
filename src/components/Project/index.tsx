@@ -13,7 +13,11 @@ const Project = ({ project }: Pick<DataProps, "project">) => {
             .reverse()
             .filter((project) => project.isTeam)
             .map((project) => (
-              <ProjectItem key={project.id} {...project} />
+              <ProjectItem
+                key={project.id}
+                {...project}
+                sectionId="TeamProject"
+              />
             ))}
         </div>
       </div>
@@ -24,7 +28,11 @@ const Project = ({ project }: Pick<DataProps, "project">) => {
             .reverse()
             .filter((project) => !project.isTeam)
             .map((project) => (
-              <ProjectItem key={project.id} {...project} />
+              <ProjectItem
+                key={project.id}
+                {...project}
+                sectionId="PersonalProject"
+              />
             ))}
         </div>
       </div>

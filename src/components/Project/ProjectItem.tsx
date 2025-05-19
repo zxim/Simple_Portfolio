@@ -7,6 +7,8 @@ import Links from "./Links";
 import { ProjectProps } from "@/types";
 
 const ProjectItem = ({
+  id,
+  sectionId,
   name,
   description,
   repoUrl,
@@ -15,7 +17,7 @@ const ProjectItem = ({
   stack,
   markdown,
   imgSrc,
-}: ProjectProps) => {
+}: ProjectProps & { id: number; sectionId: string }) => {
   return (
     <div className="flex flex-col md:flex-row gap-2 md:gap-0">
       <div className="flex flex-col gap-2">
@@ -31,7 +33,7 @@ const ProjectItem = ({
           )}
           <div className="flex flex-col gap-2">
             <div className="w-48">
-              <h3>{name}</h3>
+              <h3 id={`${sectionId}-${id}`}>{name}</h3>
               <div className="flex flex-col">
                 <span>{`${period[0]} - ${period[1]}`}</span>
               </div>
@@ -42,19 +44,21 @@ const ProjectItem = ({
       </div>
       <div className="md:border-GRAY_LIGHT md:border-solid md:border-l-[1px] md:pl-4 markdown flex flex-col w-full gap-2">
         <div>
-          <blockquote className="whitespace-pre-wrap">{`${description}`}</blockquote>
+          <blockquote className="whitespace-pre-wrap">{description}</blockquote>
           <div className="flex gap-1 flex-wrap">
             {stack.map((stack) => (
               <span
                 key={stack}
-                className=" bg-BLACK dark:bg-white  py-[2px] px-1.5 rounded-md text-xs font-medium font-mono whitespace-nowrap text-white dark:text-BLACK"
+                className="bg-BLACK dark:bg-white py-[2px] px-1.5 rounded-md text-xs font-medium font-mono whitespace-nowrap text-white dark:text-BLACK"
               >
                 {stack}
               </span>
             ))}
           </div>
         </div>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown ?? ""}</ReactMarkdown>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {markdown ?? ""}
+        </ReactMarkdown>
       </div>
     </div>
   );
