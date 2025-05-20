@@ -60,9 +60,11 @@ const Sidebar = () => {
 
     const el = document.getElementById(text);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const yOffset = -120;
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-  };
+};
 
   return (
     <aside className="fixed top-1/4 right-4 z-50 flex flex-col gap-1 text-sm bg-white p-2 rounded shadow w-52">
