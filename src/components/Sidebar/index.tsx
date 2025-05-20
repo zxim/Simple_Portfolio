@@ -45,7 +45,7 @@ const Sidebar = () => {
       return;
     }
 
-    // ✅ h2 이동 로직: 기존 텍스트 기반 방식 유지
+    // h2 이동 로직: 기존 텍스트 기반 방식 유지
     const matchTarget = sections.find((s) => s.id === text);
     if (matchTarget) {
       const targetMatch = normalize(matchTarget.match);
@@ -58,16 +58,17 @@ const Sidebar = () => {
       }
     }
 
+    // h3 이동 로직: ID 기준 이동 (위치 보정)
     const el = document.getElementById(text);
     if (el) {
       const yOffset = -120;
       const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-};
+  };
 
   return (
-    <aside className="fixed top-1/4 right-4 z-50 flex flex-col gap-1 text-sm bg-white p-2 rounded shadow w-52">
+    <aside className="fixed top-1/4 right-4 z-50 flex flex-col gap-1 text-sm bg-white dark:bg-[#121212] p-2 rounded shadow w-52">
       {sections.map(({ id, title, dataKey }) => {
         const raw = (data as Record<string, unknown>)[dataKey ?? ""];
         const items: DataItem[] = Array.isArray(raw) ? (raw as DataItem[]) : [];
@@ -93,8 +94,8 @@ const Sidebar = () => {
               onClick={() => scrollTo(id)}
               className={`block w-full text-left font-semibold ${
                 active === id
-                  ? "text-blue-600 text-base"
-                  : "text-gray-700 hover:text-blue-500"
+                  ? "text-blue-600 dark:text-yellow-300 text-base"
+                  : "text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-yellow-300"
               }`}
             >
               {title}
@@ -112,7 +113,8 @@ const Sidebar = () => {
                 {orderedItems
                   .filter(
                     (item): item is { id: number; name: string } =>
-                      typeof item.name === "string" && typeof item.id === "number"
+                      typeof item.name === "string" &&
+                      typeof item.id === "number"
                   )
                   .map((item) => {
                     const domId = `${id}-${item.id}`;
@@ -120,7 +122,7 @@ const Sidebar = () => {
                       <button
                         key={domId}
                         onClick={() => scrollTo(domId)}
-                        className="text-xs text-gray-500 hover:text-blue-400 truncate text-left"
+                        className="text-xs text-gray-500 dark:text-gray-300 hover:text-blue-400 dark:hover:text-yellow-200 truncate text-left"
                         title={item.name}
                       >
                         {item.name}
