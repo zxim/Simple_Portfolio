@@ -68,7 +68,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="fixed top-1/4 right-4 z-50 flex flex-col gap-1 text-sm bg-white dark:bg-[#121212] p-2 rounded shadow w-52">
+    <aside className="hidden md:flex fixed top-1/4 right-4 z-50 flex-col gap-1 text-sm bg-white dark:bg-[#121212] p-2 rounded shadow w-52">
       {sections.map(({ id, title, dataKey }) => {
         const raw = (data as Record<string, unknown>)[dataKey ?? ""];
         const items: DataItem[] = Array.isArray(raw) ? (raw as DataItem[]) : [];
