@@ -34,6 +34,7 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
               flipped={flipped}
             />
           </div>
+
           <div className="flex flex-col gap-2">
             <h1 className="leading-[1.15]">
               안녕하세요,
@@ -44,20 +45,21 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
               </span>
               입니다.
             </h1>
+
             <div className="flex gap-2 text-sm font-normal tracking-tight leading-tight font-sans">
               {information.contact.map((contact) =>
                 contact.isEmail ? (
                   <span
                     key={contact.id}
                     onClick={handleEmailClick}
-                    className="cursor-pointer text-BLACK hover:text-PRIMARY_HEAVY dark:hover:text-PRIMARY_HEAVY"
+                    className="cursor-pointer text-BLACK hover:text-PRIMARY_HEAVY dark:text-neutral-200 dark:hover:text-PRIMARY_HEAVY"
                   >
                     {contact.name}
                   </span>
                 ) : (
                   <ContactItem
                     key={contact.id}
-                    className="text-BLACK hover:text-PRIMARY_HEAVY dark:hover:text-PRIMARY_HEAVY"
+                    className="text-BLACK hover:text-PRIMARY_HEAVY dark:text-neutral-200 dark:hover:text-PRIMARY_HEAVY"
                     {...contact}
                   >
                     {contact.name}
