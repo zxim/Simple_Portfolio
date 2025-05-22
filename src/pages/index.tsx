@@ -29,34 +29,55 @@ const Home: NextPage<DataProps> = ({
   certificate,
   award,
 }) => {
-
   const [showIntro, setShowIntro] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowIntro(false);
+      setFadeOut(true); // 4초 뒤 인트로 fade-out 시작
     }, 4000);
 
-    return () => clearTimeout(timer);
-  }, []);
+    const fadeTimer = setTimeout(() => {
+      setShowIntro(false); // 0.7초 뒤 인트로 완전히 제거
+    }, 4700);
 
-  if (showIntro) return <IntroAnimation />;
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(fadeTimer);
+    };
+  }, []);
 
   return (
     <>
-      <ScrollProgress />
-      <Sidebar />
-      <ResumeTitle resumeTitle={resumeTitle} />
-      <Layout>
-        <Information information={information} />
-        <WorkExperience workExperience={workExperience} />
-        <Project project={project} />
-        <Activity activity={activity} />
-        <Education education={education} />
-        <Certificate certificate={certificate} />
-        <Award award={award} />
-      </Layout>
-      <Footer contact={information.contact} name={information.name} />
+      {showIntro && (
+        <div
+          className={`fixed z-[50] w-screen h-screen bg-white transition-opacity duration-700 ${
+            fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
+          <IntroAnimation />
+        </div>
+      )}
+
+      <div
+        className={`transition-opacity duration-700 ${
+          showIntro ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        <ScrollProgress />
+        <Sidebar />
+        <ResumeTitle resumeTitle={resumeTitle} />
+        <Layout>
+          <Information information={information} />
+          <WorkExperience workExperience={workExperience} />
+          <Project project={project} />
+          <Activity activity={activity} />
+          <Education education={education} />
+          <Certificate certificate={certificate} />
+          <Award award={award} />
+        </Layout>
+        <Footer contact={information.contact} name={information.name} />
+      </div>
     </>
   );
 };
