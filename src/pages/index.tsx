@@ -2,8 +2,11 @@ import fsPromises, * as fs from "fs/promises";
 import path from "path";
 
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
+import { IntroAnimation } from "@/components/Intro/index";
 import Activity from "@/components/Activity";
+import Award from "@/components/Award";
 import Certificate from "@/components/Certificate";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
@@ -12,10 +15,9 @@ import Layout from "@/components/Layout";
 import Project from "@/components/Project";
 import ResumeTitle from "@/components/ResumeTitle";
 import ScrollProgress from "@/components/ScrollProgress";
+import Sidebar from "@/components/Sidebar";
 import WorkExperience from "@/components/WorkExperience";
 import { DataProps, InformationProps, ProjectProps, WorkExperienceProps } from "@/types";
-import Award from "@/components/Award";
-import Sidebar from "@/components/Sidebar";
 
 const Home: NextPage<DataProps> = ({
   resumeTitle,
@@ -27,6 +29,19 @@ const Home: NextPage<DataProps> = ({
   certificate,
   award,
 }) => {
+
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (showIntro) return <IntroAnimation />;
+
   return (
     <>
       <ScrollProgress />
