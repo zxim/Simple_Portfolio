@@ -42,8 +42,8 @@
       "id": 1,
       "name": "FARM",
       "description": "2023 한이음 ICT멘토링 공모전. 카메라로 과일을 인식하고 AR로 품종 및 영양 성분을 시각적으로 제공하는 앱.",
-      "webUrl": "https://github.com/zxim/FarmApp-Android",
-      "repoUrl": "https://velog.io/@tlaals44/2023-%ED%95%9C%EC%9D%B4%EC%9D%8C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
+      "webUrl": "https://velog.io/@tlaals44/2023-%ED%95%9C%EC%9D%B4%EC%9D%8C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
+      "repoUrl": "https://github.com/zxim/FarmApp-Android",
       "isTeam": true,
       "period": ["2023. 03", "2023. 12"],
       "stack": ["Java", "Android Studio", "ARCore", "OpenCV", "MySQL"]
