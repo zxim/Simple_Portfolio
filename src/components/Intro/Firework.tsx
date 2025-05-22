@@ -30,13 +30,25 @@ const Firework = () => {
     const screenH = window.innerHeight;
     const g = 1300;
 
+    const isMobile = screenW <= 768;
+
     const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }).map(() => {
-      const fromLeft = Math.random() < 0.5;
-      const x0 = fromLeft ? 50 : screenW - 50;
+      const fromLeft = isMobile ? null : Math.random() < 0.5;
+
+      const x0 = isMobile
+        ? screenW / 2 + randomBetween(-30, 30)
+        : fromLeft
+          ? 50
+          : screenW - 50;
+
       const y0 = screenH - 30;
-      const angle = randomBetween(Math.PI * 0.22, Math.PI * 0.38);
+
+      const angle = isMobile
+        ? randomBetween(Math.PI * 0.25, Math.PI * 0.75)
+        : randomBetween(Math.PI * 0.22, Math.PI * 0.38);
+
       const v = randomBetween(1000, 1600);
-      const vx = Math.cos(angle) * v * (fromLeft ? 1 : -1);
+      const vx = Math.cos(angle) * v * (isMobile ? 1 : fromLeft ? 1 : -1);
       const vy = -Math.sin(angle) * v;
       const color = PAPER_COLORS[Math.floor(Math.random() * PAPER_COLORS.length)];
       const height = randomBetween(32, 50);
