@@ -21,6 +21,9 @@ module.exports = {
         GRADIENT_FROM: "#e3f2fd",   // 밝은 하늘색 (연한 시작)
         GRADIENT_TO: "#1e3a8a",     // 남색 느낌 (짙은 종료)
       },
+      fontFamily: {
+        fredoka: ['Fredoka', 'sans-serif'],  
+      },
     },
   },
   plugins: [],
