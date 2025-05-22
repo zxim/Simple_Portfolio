@@ -1,5 +1,3 @@
-"use client";
-
 import FallingShapes from "./FallingShapes";
 import LogoMotion from "./LogoMotion";
 
