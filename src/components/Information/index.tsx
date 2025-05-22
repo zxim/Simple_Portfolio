@@ -39,7 +39,7 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
             <h1 className="leading-[1.15]">
               안녕하세요,
               <br />
-              프론트엔드 엔지니어{" "}
+              꾸준히 성장하는 인재{" "}
               <span className="text-PRIMARY font-semibold">
                 {information.name}
               </span>
