@@ -1,15 +1,8 @@
 import { useEffect, useRef } from "react";
 
 const PAPER_COLORS = [
-  '#f87171',   // 빨강
-  '#34d399',   // 청록
-  '#60a5fa',   // 파랑
-  '#facc15',   // 노랑
-  '#a78bfa',   // 연보라
-  '#fbbf24',   // 주황
-  '#4ade80',   // 연초록
-  '#a21caf',   // 진보라 (hsl → 헥사)
-  '#fb7185'    // 연분홍
+  "#f87171", "#34d399", "#60a5fa", "#facc15", "#a78bfa",
+  "#fbbf24", "#4ade80", "#a21caf", "#fb7185"
 ];
 
 const PARTICLE_COUNT = 36;
@@ -32,7 +25,7 @@ type Particle = {
 const Firework = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const launch = () => {
     const screenW = window.innerWidth;
     const screenH = window.innerHeight;
     const g = 1300;
@@ -55,6 +48,7 @@ const Firework = () => {
     const target = ref.current;
     if (!target) return;
     target.innerHTML = "";
+
     particles.forEach((p, idx) => {
       const el = document.createElement("div");
       el.style.position = "absolute";
@@ -69,7 +63,6 @@ const Firework = () => {
       el.style.opacity = "0";
       el.style.pointerEvents = "none";
       el.style.transition = "opacity 0.2s linear";
-
       target.appendChild(el);
 
       setTimeout(() => {
@@ -90,20 +83,29 @@ const Firework = () => {
         requestAnimationFrame(animate);
       }, p.delay * 1000);
     });
+  };
 
-    return () => { target.innerHTML = ""; };
+  useEffect(() => {
+    launch();
+    window.addEventListener("resize", launch);
+    window.addEventListener("orientationchange", launch);
+
+    const el = ref.current;
+
+    return () => {
+      window.removeEventListener("resize", launch);
+      window.removeEventListener("orientationchange", launch);
+      if (el) el.innerHTML = "";
+    };
   }, []);
 
   return (
     <div
       ref={ref}
+      className="fixed inset-0 z-50 pointer-events-none w-screen h-screen"
       style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: "none",
-        width: "100vw",
-        height: "100vh",
+        overflow: "hidden",
+        touchAction: "none",
       }}
     />
   );
