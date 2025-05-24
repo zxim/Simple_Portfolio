@@ -30,8 +30,9 @@ const ProjectItem = ({
   return (
     <>
       <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-        <div className="flex flex-col gap-2">
-          <div className="flex md:flex-col items-center md:items-start mr-4 gap-6">
+        {/* 왼쪽 정보: sticky로 */}
+        <div className="md:w-72 flex flex-col gap-2">
+          <div className="md:sticky md:top-8 self-start flex md:flex-col items-center md:items-start gap-6">
             {imgSrc && (
               <Image
                 src={imgSrc}
@@ -53,7 +54,7 @@ const ProjectItem = ({
           </div>
         </div>
 
-        {/* 오른쪽: 본문 전체에 onClick */}
+        {/* 오른쪽: 본문 */}
         <div
           className="md:border-GRAY_LIGHT md:border-solid md:border-l-[1px] md:pl-4 markdown flex flex-col w-full gap-2 cursor-pointer"
           onClick={() => images.length > 0 && setModalOpen(true)}
