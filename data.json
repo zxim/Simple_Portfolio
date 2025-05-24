@@ -31,6 +31,7 @@
     {
       "id": 0,
       "name": "동네친구들",
+      "imageCount": 14,
       "description": "구글맵 및 GPS의 위치 정보를 이용하여 근처 가게의 정보 제공 및 SNS 기능 웹페이지.",
       "webUrl": "https://velog.io/@tlaals44/2022-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/businessesfriends",
@@ -41,6 +42,7 @@
     {
       "id": 1,
       "name": "FARM",
+      "imageCount": 6,
       "description": "2023 한이음 ICT멘토링 공모전. 카메라로 과일을 인식하고 AR로 품종 및 영양 성분을 시각적으로 제공하는 앱.",
       "webUrl": "https://velog.io/@tlaals44/2023-%ED%95%9C%EC%9D%B4%EC%9D%8C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/FarmApp-Android",
@@ -51,6 +53,7 @@
     {
       "id": 2,
       "name": "Packet Sniffer",
+      "imageCount": 1,
       "description": "Python의 Scapy모듈을 사용하여 개발. WireShark와 비슷한 간단한 패킷 캡처 프로그램.",
       "webUrl": "https://velog.io/@tlaals44/2024-%EA%B0%9C%EC%9D%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/Packet-Sniffer",
@@ -61,6 +64,7 @@
     {
       "id": 3,
       "name": "SIBS",
+      "imageCount": 6,
       "description": "2024 한이음 ICT 멘토링 공모전. 인터넷 개인방송 써드파티 프로그램.",
       "webUrl": "https://velog.io/@tlaals44/2024-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/SIBS",
@@ -71,6 +75,7 @@
     {
       "id": 4,
       "name": "LAMP스택 기반 취약점 진단 자동화 프로젝트",
+      "imageCount": 5,
       "description": "KISA의 클라우드 취약점 점검 가이드 2024 기반 Ansible을 활용한 취약점 진단 자동화 프로그램 개발",
       "webUrl": "https://velog.io/@tlaals44/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/System-Security-Automation",
@@ -81,6 +86,7 @@
     {
       "id": 5,
       "name": "Terraform을 활용한 AWS 인프라 구축 자동화 프로젝트",
+      "imageCount": 1,
       "description": "3-Tier 아키텍처와 AWS 보안 서비스를 활용한 안전하고 확장 가능한 클라우드 환경 구축.",
       "webUrl": "https://velog.io/@tlaals44/Terraform%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-AWS-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%B6%95-%EC%9E%90%EB%8F%99%ED%99%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/IT_Security_3Team",
@@ -91,6 +97,7 @@
     {
       "id": 6,
       "name": "AWS VPC 구조 시각화 도구",
+      "imageCount": 4,
       "description": "AWS의 VPC 및 기타 토폴로지를 시각화하는 웹페이지",
       "webUrl": "https://velog.io/@tlaals44/%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/Automation-Drawing-AWS-Network-Topology",
@@ -101,6 +108,7 @@
     {
       "id": 7,
       "name": "취약한 웹 페이지 개발 및 모의해킹 프로젝트",
+      "imageCount": 9,
       "description": "LAMP 스택 기반 취약한 웹페이지 개발 및 OWASP Top 10 및 CVE를 참고하여 다양한 웹해킹 공격 및 시큐어 코딩 진행.",
       "webUrl": "https://velog.io/@tlaals44/%EC%B7%A8%EC%95%BD%ED%95%9C-%EC%9B%B9-%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B0%9C%EB%B0%9C-%EB%B0%8F-%EC%8B%9C%ED%81%90%EC%96%B4%EC%BD%94%EB%94%A9",
       "repoUrl": "https://github.com/zxim/Vulnerable-Web",
@@ -111,6 +119,7 @@
         {
       "id": 8,
       "name": "협력사 기반 침해사고 분석 및 보안 솔루션 대응 프로젝트",
+      "imageCount": 14,
       "description": "취약한 협력사 기반으로 웹해킹 및 대기업 본사 침투 및 랜섬웨어(WannaCry)를 배포 및 분리 침해사고 분석 등 진행.",
       "webUrl": "https://velog.io/@tlaals44/%ED%98%84%EB%8C%80%EC%98%A4%ED%86%A0%EC%97%90%EB%B2%84-%EC%B5%9C%EC%A2%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8",
       "repoUrl": "https://github.com/zxim/AutoEver_Project",
@@ -121,6 +130,7 @@
     {
       "id": 9,
       "name": "YouTube TTS 브라우저 확장 프로그램",
+      "imageCount": 3,
       "description": "시각장애인을 위한 웹 접근성 확장 프로그램 개발. YouTube 영상의 제목, 업로더, 게시일 등을 TTS로 읽어주는 기능 구현 및 키보드 내비게이션 제공.",
       "webUrl": "https://velog.io/@tlaals44/%EC%8B%9C%EA%B0%81%EC%9E%A5%EC%95%A0%EC%9D%B8%EC%9D%84-%EC%9C%84%ED%95%9C-YouTube-%EB%8F%99%EC%98%81%EC%83%81-%EC%A0%95%EB%B3%B4-%EC%9E%90%EB%8F%99-%EC%9D%8C%EC%84%B1-%EC%95%88%EB%82%B4-%ED%99%95%EC%9E%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8",
       "repoUrl": "https://github.com/zxim/youtube-tts-extension",
