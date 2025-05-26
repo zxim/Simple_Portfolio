@@ -38,7 +38,7 @@ const SKILLS = {
     { name: "JavaScript", level: "중", icon: FaJs },
     { name: "TypeScript", level: "중", icon: SiTypescript },
     { name: "PHP", level: "중", icon: FaPhp },
-        { name: "Python", level: "하", icon: FaPython },
+    { name: "Python", level: "하", icon: FaPython },
   ],
   프레임워크: [
     { name: "React", level: "중", icon: FaReact },
@@ -88,7 +88,7 @@ export default function SkillsTabs() {
     <div className="w-full max-w-3xl mx-auto flex flex-col md:flex-row bg-white/90 rounded-3xl shadow-2xl overflow-hidden mt-10 border border-gray-200">
       <div className="flex md:flex-col bg-gradient-to-b from-gray-100 to-white md:w-40 w-full">
         {분야_목록.map((field) => {
-          const Icon = field.icon;
+          const Icon = field.icon as React.FC<any>; // ← 추가
           return (
             <button
               key={field.name}
@@ -116,7 +116,7 @@ export default function SkillsTabs() {
             className="space-y-5"
           >
             {SKILLS[selected].map((skill: Skill) => {
-              const SkillIcon = skill.icon;
+              const SkillIcon = skill.icon as React.FC<any>; // ← 추가
               return (
                 <li
                   key={skill.name}
