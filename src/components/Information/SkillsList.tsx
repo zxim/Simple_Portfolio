@@ -82,7 +82,7 @@ const CATEGORY_LIST: { name: keyof typeof SKILLS; icon: IconType }[] = [
   { name: "Language", icon: FaKeyboard },
   { name: "Framework", icon: FaReact },
   { name: "WebServer", icon: FaServer },
-  { name: "DevSecOps", icon: FaAws },
+  { name: "DevOps", icon: FaAws },
   { name: "OS", icon: FaLinux },
   { name: "Security", icon: FaShieldAlt },
 ];
