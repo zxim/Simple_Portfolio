@@ -8,7 +8,6 @@ type CarouselSliderProps = {
 };
 
 const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
-  // [cloneLast, ...images, cloneFirst]
   const extendedImages = [
     images[images.length - 1],
     ...images,
@@ -23,7 +22,7 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     setTransition(true);
   };
 
-  // 키보드 ← →
+  // 키보드 좌우 방향키 제어
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") slideTo(current - 1);
@@ -33,7 +32,7 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [current]);
 
-  // 무한 루프 트릭
+  // 무한 루프 트릭 처리
   useEffect(() => {
     if (!transition) return;
     if (current === 0) {
@@ -58,7 +57,7 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     }
   }, [transition]);
 
-  // 모바일 스와이프
+  // 모바일 터치 슬라이드 처리
   const handleTouchStart = (e: React.TouchEvent) => {
     startTouch.current = e.touches[0].clientX;
   };
@@ -73,24 +72,26 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     startTouch.current = null;
   };
 
-  // 실제 표시 인덱스(1~images.length)
   const realIdx = ((current - 1 + images.length) % images.length) + 1;
 
   return (
     <div className="flex flex-col items-center w-full max-w-full">
-      {/* 이미지 슬라이더(버튼 없음) */}
       <div
-        className="flex items-center justify-center w-full h-full relative select-none overflow-hidden"
+        className="relative w-full max-w-[800px]"
+        style={{ paddingTop: "56.25%", overflow: "hidden" }}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         <div
           className={`
-            flex flex-nowrap w-full h-full
-            ${transition ? "transition-transform duration-500 ease-in-out" : ""}
+            absolute top-0 left-0 w-full h-full flex transition-transform duration-500 ease-in-out
+            ${transition ? "" : "transition-none"}
           `}
           style={{
             transform: `translateX(-${current * 100}%)`,
+            display: "flex",
+            flexWrap: "nowrap",
+            height: "100%",
           }}
         >
           {extendedImages.map((img, i) => (
@@ -101,24 +102,24 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
               <img
                 src={img}
                 alt={`project image`}
-                className="
-                  object-contain bg-gray-100 dark:bg-[#222]
-                  rounded-xl shadow
-                  max-h-[68vh] sm:max-h-[75vh]
-                  max-w-[94vw] sm:max-w-[800px]
-                  w-auto h-auto
-                  transition-all
-                "
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                }}
               />
             </div>
           ))}
         </div>
       </div>
-      {/* 아래에 < > 버튼 & 인덱스 */}
+
+      {/* 버튼 & 인덱스 영역 (이미지 바로 아래) */}
       {images.length > 1 && (
-        <div className="flex flex-row gap-8 mt-4 items-center justify-center">
+        <div className="flex flex-row gap-6 mt-2 mb-4 items-center justify-center max-w-[800px] w-full">
           <CarouselArrow direction="left" onClick={() => slideTo(current - 1)} />
-          <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+          <div className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm select-none">
             {realIdx} / {images.length}
           </div>
           <CarouselArrow direction="right" onClick={() => slideTo(current + 1)} />
