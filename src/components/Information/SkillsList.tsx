@@ -35,7 +35,7 @@ type Skill = {
 };
 
 const SKILLS = {
-  언어: [
+  Language: [
     { name: "HTML", level: "상", icon: FaHtml5 },
     { name: "CSS", level: "상", icon: FaCss3Alt },
     { name: "JavaScript", level: "중", icon: FaJs },
@@ -43,16 +43,16 @@ const SKILLS = {
     { name: "PHP", level: "중", icon: FaPhp },
     { name: "Python", level: "하", icon: FaPython },
   ],
-  프레임워크: [
+  Framework: [
     { name: "React", level: "중", icon: FaReact },
     { name: "Next.js", level: "하", icon: SiNextdotjs },
     { name: "Tailwind CSS", level: "하", icon: SiTailwindcss },
   ],
-  웹서버: [
+  WebServer: [
     { name: "Apache", level: "중", icon: SiApache },
     { name: "Nginx", level: "하", icon: SiNginx },
   ],
-  데브섹옵스: [
+  DevSecOps: [
     { name: "AWS EC2", level: "상", icon: FaAws },
     { name: "AWS S3", level: "상", icon: FaAws },
     { name: "AWS ALB", level: "상", icon: FaAws },
@@ -61,11 +61,11 @@ const SKILLS = {
     { name: "Vercel", level: "하", icon: SiVercel },
     { name: "Docker", level: "하", icon: SiDocker },
   ],
-  운영체제: [
+  OS: [
     { name: "Ubuntu", level: "중", icon: SiUbuntu },
     { name: "Kali Linux", level: "하", icon: FaLinux },
   ],
-  보안: [
+  Security: [
     { name: "Suricata", level: "중", icon: FaShieldAlt },
     { name: "Wireshark", level: "중", icon: FaEye },
     { name: "Burp Suite", level: "하", icon: FaNetworkWired },
@@ -73,29 +73,29 @@ const SKILLS = {
 } as const;
 
 const LEVEL_BADGE = {
-  "상": "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-200",
-  "중": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-200",
-  "하": "bg-gray-200 text-gray-500 dark:bg-gray-700/60 dark:text-gray-200",
+  상: "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-200",
+  중: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-200",
+  하: "bg-gray-200 text-gray-500 dark:bg-gray-700/60 dark:text-gray-200",
 };
 
-const 분야_목록: { name: string; icon: IconType }[] = [
-  { name: "언어", icon: FaKeyboard },
-  { name: "프레임워크", icon: FaReact },
-  { name: "웹서버", icon: FaServer },
-  { name: "데브섹옵스", icon: FaAws },
-  { name: "운영체제", icon: FaLinux },
-  { name: "보안", icon: FaShieldAlt },
+const CATEGORY_LIST: { name: keyof typeof SKILLS; icon: IconType }[] = [
+  { name: "Language", icon: FaKeyboard },
+  { name: "Framework", icon: FaReact },
+  { name: "WebServer", icon: FaServer },
+  { name: "DevSecOps", icon: FaAws },
+  { name: "OS", icon: FaLinux },
+  { name: "Security", icon: FaShieldAlt },
 ];
 
-type 분야 = keyof typeof SKILLS;
+type Category = keyof typeof SKILLS;
 
 export default function SkillsTabs() {
-  const [selected, setSelected] = useState<분야>("언어");
+  const [selected, setSelected] = useState<Category>("Language");
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col md:flex-row bg-white/90 dark:bg-neutral-900/80 rounded-3xl shadow-2xl overflow-hidden mt-8 border border-gray-200 dark:border-gray-800">
+    <div className="w-full max-w-3xl mx-auto flex flex-col md:flex-row bg-white/90 dark:bg-neutral-900/80 rounded-3xl shadow-2xl overflow-hidden mt-8 border border-gray-200 dark:border-gray-800 relative">
       <div className="flex md:flex-col bg-gradient-to-b from-gray-100 to-white dark:from-neutral-800 dark:to-neutral-900 md:w-44 w-full">
-        {분야_목록.map((field) => {
+        {CATEGORY_LIST.map((field) => {
           const Icon = field.icon as React.FC<any>;
           return (
             <button
@@ -107,7 +107,7 @@ export default function SkillsTabs() {
                   : "hover:bg-blue-50 dark:hover:bg-neutral-800 text-gray-600 dark:text-gray-200"}
                 focus:outline-none
               `}
-              onClick={() => setSelected(field.name as 분야)}
+              onClick={() => setSelected(field.name)}
             >
               <Icon className="inline-block mr-2" />
               {field.name}

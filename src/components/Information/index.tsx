@@ -23,17 +23,13 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
     <>
       <div className="flex flex-col gap-8">
         <div className="flex items-center gap-6">
-          <div
-            className="w-36 h-36 shrink-0"
-            onClick={handleClick}
-          >
+          <div className="w-36 h-36 shrink-0" onClick={handleClick}>
             <FlipImage
               frontSrc="/images/profile/profile1.jpg"
               backSrc="/images/profile/profile2.jpg"
               flipped={flipped}
             />
           </div>
-
           <div className="flex flex-col gap-2">
             <h1 className="leading-[1.15]">
               안녕하세요,
@@ -44,7 +40,6 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
               </span>
               입니다.
             </h1>
-
             <div className="flex gap-2 text-sm font-normal tracking-tight leading-tight font-sans">
               {information.contact.map((contact) =>
                 contact.isEmail ? (
@@ -69,9 +64,10 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
           </div>
         </div>
         <Introduce markdown={information.markdown} />
-        <SkillsList />
+        <div>
+          <SkillsList />
+        </div>
       </div>
-
       {showPopup && (
         <EmailPopup
           email={
