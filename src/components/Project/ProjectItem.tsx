@@ -22,10 +22,14 @@ const ProjectItem = ({
   imgSrc,
 }: ProjectProps & { id: number; sectionId: string; imageCount?: number }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number } | null>(null);
 
   const images = Array.from({ length: imageCount }, (_, i) =>
     `/images/project/${id}/${i + 1}.png`
   );
+
+  // 모바일은 툴팁 숨김
+  const isTouch = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
 
   return (
     <>
@@ -56,8 +60,13 @@ const ProjectItem = ({
 
         {/* 오른쪽: 본문 */}
         <div
-          className="md:border-GRAY_LIGHT md:border-solid md:border-l-[1px] md:pl-4 markdown flex flex-col w-full gap-2 cursor-pointer"
+          className="md:border-GRAY_LIGHT md:border-solid md:border-l-[1px] md:pl-4 markdown flex flex-col w-full gap-2 cursor-pointer relative"
           onClick={() => images.length > 0 && setModalOpen(true)}
+          onMouseMove={e => {
+            if (isTouch) return;
+            setTooltip({ x: e.clientX, y: e.clientY });
+          }}
+          onMouseLeave={() => setTooltip(null)}
           title="이미지 모아보기"
         >
           <div>
@@ -76,6 +85,23 @@ const ProjectItem = ({
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {markdown ?? ""}
           </ReactMarkdown>
+          {/* 툴팁 – hover 시 마우스 옆에 뜸 */}
+          {tooltip && (
+            <div
+              className="fixed z-50 pointer-events-none bg-black/90 text-white text-xs rounded px-3 py-2 shadow-lg"
+              style={{
+                left: tooltip.x + 16,
+                top: tooltip.y + 10,
+                whiteSpace: "nowrap",
+                fontWeight: 500,
+                opacity: 0.95,
+                transition: "opacity .12s",
+              }}
+            >
+              <span className="mr-1">🖼️</span>
+              클릭해서 프로젝트 사진 보기
+            </div>
+          )}
         </div>
       </div>
       {/* 캐러셀 모달 */}

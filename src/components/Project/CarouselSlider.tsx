@@ -77,17 +77,13 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
   const realIdx = ((current - 1 + images.length) % images.length) + 1;
 
   return (
-    <>
+    <div className="flex flex-col items-center w-full max-w-full">
+      {/* 이미지 슬라이더(버튼 없음) */}
       <div
         className="flex items-center justify-center w-full h-full relative select-none overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* < 버튼 */}
-        {images.length > 1 && (
-          <CarouselArrow direction="left" onClick={() => slideTo(current - 1)} />
-        )}
-        {/* 슬라이드 이미지 영역 */}
         <div
           className={`
             flex flex-nowrap w-full h-full
@@ -100,9 +96,7 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
           {extendedImages.map((img, i) => (
             <div
               key={i}
-              className="
-                flex-shrink-0 flex-grow-0 w-full h-full flex items-center justify-center
-              "
+              className="flex-shrink-0 flex-grow-0 w-full h-full flex items-center justify-center"
             >
               <img
                 src={img}
@@ -119,16 +113,18 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
             </div>
           ))}
         </div>
-        {/* > 버튼 */}
-        {images.length > 1 && (
+      </div>
+      {/* 아래에 < > 버튼 & 인덱스 */}
+      {images.length > 1 && (
+        <div className="flex flex-row gap-8 mt-4 items-center justify-center">
+          <CarouselArrow direction="left" onClick={() => slideTo(current - 1)} />
+          <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+            {realIdx} / {images.length}
+          </div>
           <CarouselArrow direction="right" onClick={() => slideTo(current + 1)} />
-        )}
-      </div>
-      {/* 인덱스 & 페이지 정보 */}
-      <div className="mt-2 text-center text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-        {realIdx} / {images.length}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
 

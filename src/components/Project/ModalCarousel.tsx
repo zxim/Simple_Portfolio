@@ -11,13 +11,20 @@ type ModalCarouselProps = {
 const ModalCarousel = ({ images, startIndex, onClose }: ModalCarouselProps) => {
   const backdropRef = useRef<HTMLDivElement>(null);
 
-  // 바깥 클릭 닫기
+  // 바깥 클릭 & ESC로 닫기
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       if (backdropRef.current && e.target === backdropRef.current) onClose();
     };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
     window.addEventListener("mousedown", onClick);
-    return () => window.removeEventListener("mousedown", onClick);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("mousedown", onClick);
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [onClose]);
 
   return (
@@ -34,7 +41,7 @@ const ModalCarousel = ({ images, startIndex, onClose }: ModalCarouselProps) => {
         <button
           style={{
             zIndex: 9999,
-            position: 'absolute',
+            position: "absolute",
             right: 16,
             top: 16,
             background: "transparent",
