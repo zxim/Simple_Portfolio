@@ -34,12 +34,12 @@ const Home: NextPage<DataProps> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setFadeOut(true); // 4초 뒤 인트로 fade-out 시작
-    }, 4000);
+      setFadeOut(true);
+    }, 3000);
 
     const fadeTimer = setTimeout(() => {
-      setShowIntro(false); // 0.7초 뒤 인트로 완전히 제거
-    }, 4700);
+      setShowIntro(false);
+    }, 3700);
 
     return () => {
       clearTimeout(timer);
@@ -69,8 +69,8 @@ const Home: NextPage<DataProps> = ({
         <ResumeTitle resumeTitle={resumeTitle} />
         <Layout>
           <Information information={information} />
-          <WorkExperience workExperience={workExperience} />
           <Project project={project} />
+          <WorkExperience workExperience={workExperience} />
           <Activity activity={activity} />
           <Education education={education} />
           <Certificate certificate={certificate} />

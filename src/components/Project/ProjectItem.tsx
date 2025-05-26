@@ -30,7 +30,7 @@ const ProjectItem = ({
   return (
     <>
       <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-        {/* 왼쪽 정보: sticky로 */}
+        {/* 왼쪽 sticky */}
         <div className="md:w-72 flex flex-col gap-2">
           <div className="md:sticky md:top-8 self-start flex md:flex-col items-center md:items-start gap-6">
             {imgSrc && (
