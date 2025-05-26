@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import CarouselArrow from "./CarouselArrow";
 
@@ -22,6 +22,29 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     setTransition(true);
   };
 
+  // transition이 끝난 후 무한루프 점프
+  const handleTransitionEnd = () => {
+    // 왼쪽으로 넘겼을 때(첫번째를 더 넘겼을 때) → 마지막으로 점프
+    if (current === 0) {
+      setTransition(false);
+      setCurrent(images.length);
+    }
+    // 오른쪽으로 넘겼을 때(마지막을 더 넘겼을 때) → 첫번째로 점프
+    else if (current === images.length + 1) {
+      setTransition(false);
+      setCurrent(1);
+    }
+  };
+
+  // 점프 후 transition 다시 복구
+  useEffect(() => {
+    if (!transition) {
+      // 다음 렌더링 사이클에서 다시 transition 활성화
+      const id = setTimeout(() => setTransition(true), 20);
+      return () => clearTimeout(id);
+    }
+  }, [transition]);
+
   // 키보드 좌우 방향키 제어
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -31,31 +54,6 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [current]);
-
-  // 무한 루프 트릭 처리
-  useEffect(() => {
-    if (!transition) return;
-    if (current === 0) {
-      setTimeout(() => {
-        setTransition(false);
-        setCurrent(images.length);
-      }, 500);
-    }
-    if (current === images.length + 1) {
-      setTimeout(() => {
-        setTransition(false);
-        setCurrent(1);
-      }, 500);
-    }
-  }, [current, images.length, transition]);
-
-  useEffect(() => {
-    if (!transition) {
-      setTimeout(() => {
-        setTransition(true);
-      }, 20);
-    }
-  }, [transition]);
 
   // 모바일 터치 슬라이드 처리
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -84,8 +82,8 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
       >
         <div
           className={`
-            absolute top-0 left-0 w-full h-full flex transition-transform duration-500 ease-in-out
-            ${transition ? "" : "transition-none"}
+            absolute top-0 left-0 w-full h-full flex
+            ${transition ? "transition-transform duration-500 ease-in-out" : ""}
           `}
           style={{
             transform: `translateX(-${current * 100}%)`,
@@ -93,6 +91,7 @@ const CarouselSlider = ({ images, startIndex }: CarouselSliderProps) => {
             flexWrap: "nowrap",
             height: "100%",
           }}
+          onTransitionEnd={handleTransitionEnd}
         >
           {extendedImages.map((img, i) => (
             <div
