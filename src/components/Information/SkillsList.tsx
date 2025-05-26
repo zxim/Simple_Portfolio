@@ -50,6 +50,7 @@ const SKILLS = {
     { name: "AWS EC2", level: "상", icon: FaAws },
     { name: "AWS S3", level: "상", icon: FaAws },
     { name: "AWS ALB", level: "상", icon: FaAws },
+    { name: "AWS ACM", level: "상", icon: FaAws },
     { name: "Git", level: "중", icon: FaGitAlt },
     { name: "Vercel", level: "하", icon: SiVercel },
     { name: "Docker", level: "하", icon: SiDocker },
@@ -62,7 +63,6 @@ const SKILLS = {
     { name: "Suricata", level: "중", icon: FaShieldAlt },
     { name: "Wireshark", level: "중", icon: FaEye },
     { name: "Burp Suite", level: "하", icon: FaNetworkWired },
-    { name: "Metasploit", level: "하", icon: FaBug },
   ],
 } as const;
 
