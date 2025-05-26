@@ -66,9 +66,9 @@ const SKILLS = {
 } as const;
 
 const LEVEL_BADGE = {
-  "상": "bg-blue-100 text-blue-600",
-  "중": "bg-yellow-100 text-yellow-600",
-  "하": "bg-gray-200 text-gray-500",
+  "상": "bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-200",
+  "중": "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-200",
+  "하": "bg-gray-200 text-gray-500 dark:bg-gray-700/60 dark:text-gray-200",
 };
 
 const 분야_목록: { name: string; icon: IconType }[] = [
@@ -85,16 +85,18 @@ export default function SkillsTabs() {
   const [selected, setSelected] = useState<분야>("언어");
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col md:flex-row bg-white/90 rounded-3xl shadow-2xl overflow-hidden mt-10 border border-gray-200">
-      <div className="flex md:flex-col bg-gradient-to-b from-gray-100 to-white md:w-40 w-full">
+    <div className="w-full max-w-3xl mx-auto flex flex-col md:flex-row bg-white/90 dark:bg-neutral-900/80 rounded-3xl shadow-2xl overflow-hidden mt-8 border border-gray-200 dark:border-gray-800">
+      <div className="flex md:flex-col bg-gradient-to-b from-gray-100 to-white dark:from-neutral-800 dark:to-neutral-900 md:w-44 w-full">
         {분야_목록.map((field) => {
-          const Icon = field.icon as React.FC<any>; // ← 추가
+          const Icon = field.icon as React.FC<any>;
           return (
             <button
               key={field.name}
               className={`
-                flex items-center gap-2 w-full text-base md:text-lg px-4 py-4 transition font-semibold border-b md:border-b-0 md:border-l-4 border-transparent
-                ${selected === field.name ? "bg-white text-blue-600 border-l-blue-500 md:border-l-8 shadow-sm" : "hover:bg-blue-50 text-gray-600"}
+                flex items-center gap-2 w-full text-sm sm:text-base md:text-lg px-4 py-3 sm:py-4 transition font-semibold border-b md:border-b-0 md:border-l-4 border-transparent
+                ${selected === field.name
+                  ? "bg-white dark:bg-neutral-900 text-blue-600 dark:text-blue-400 border-l-blue-500 md:border-l-8 shadow-sm"
+                  : "hover:bg-blue-50 dark:hover:bg-neutral-800 text-gray-600 dark:text-gray-200"}
                 focus:outline-none
               `}
               onClick={() => setSelected(field.name as 분야)}
@@ -105,7 +107,7 @@ export default function SkillsTabs() {
           );
         })}
       </div>
-      <div className="flex-1 p-8 bg-white/80">
+      <div className="flex-1 p-5 sm:p-8 bg-white/80 dark:bg-neutral-900/90">
         <AnimatePresence mode="wait">
           <motion.ul
             key={selected}
@@ -113,20 +115,20 @@ export default function SkillsTabs() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
             transition={{ type: "spring", duration: 0.38 }}
-            className="space-y-5"
+            className="space-y-3 sm:space-y-5"
           >
             {SKILLS[selected].map((skill: Skill) => {
-              const SkillIcon = skill.icon as React.FC<any>; // ← 추가
+              const SkillIcon = skill.icon as React.FC<any>;
               return (
                 <li
                   key={skill.name}
-                  className="flex justify-between items-center bg-gradient-to-r from-white to-blue-50/30 rounded-2xl shadow-md px-5 py-4 hover:scale-[1.025] hover:shadow-lg transition-all border border-gray-100"
+                  className="flex justify-between items-center bg-gradient-to-r from-white to-blue-50/30 dark:from-neutral-800 dark:to-blue-900/10 rounded-2xl shadow-md px-3 py-3 sm:px-5 sm:py-4 hover:scale-[1.025] hover:shadow-lg transition-all border border-gray-100 dark:border-gray-800"
                 >
                   <div className="flex items-center gap-3">
-                    <SkillIcon className="text-xl" />
-                    <span className="text-lg font-medium">{skill.name}</span>
+                    <SkillIcon className="text-xl sm:text-2xl" />
+                    <span className="text-base sm:text-lg font-medium">{skill.name}</span>
                   </div>
-                  <span className={`px-3 py-1 rounded-xl text-sm font-bold ${LEVEL_BADGE[skill.level]}`}>
+                  <span className={`px-3 py-1 rounded-xl text-xs sm:text-sm font-bold ${LEVEL_BADGE[skill.level]}`}>
                     {skill.level}
                   </span>
                 </li>
