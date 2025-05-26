@@ -88,12 +88,17 @@ const ProjectItem = ({
           {/* 툴팁 – hover 시 마우스 옆에 뜸 */}
           {tooltip && (
             <div
-              className="fixed z-50 pointer-events-none bg-black/90 text-white text-xs rounded px-3 py-2 shadow-lg"
+              className={`
+                fixed z-50 pointer-events-none
+                bg-black/90 text-white
+                dark:bg-white dark:text-black
+                text-xs rounded px-3 py-2 shadow-lg
+                font-medium
+              `}
               style={{
                 left: tooltip.x + 16,
                 top: tooltip.y + 10,
                 whiteSpace: "nowrap",
-                fontWeight: 500,
                 opacity: 0.95,
                 transition: "opacity .12s",
               }}
