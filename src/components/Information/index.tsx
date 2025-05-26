@@ -1,11 +1,10 @@
-"use client";
-
 import { useState } from "react";
 
 import ContactItem from "../ContactItem";
 import Introduce from "./Introduce";
 import FlipImage from "./FlipImage";
 import EmailPopup from "./EmailPopup";
+import SkillsList from "./SkillsList";
 
 import { DataProps } from "@/types";
 
@@ -70,6 +69,7 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
           </div>
         </div>
         <Introduce markdown={information.markdown} />
+        <SkillsList />
       </div>
 
       {showPopup && (

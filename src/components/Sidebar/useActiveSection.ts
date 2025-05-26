@@ -20,10 +20,21 @@ export const useActiveSection = () => {
       { threshold: 0.3, rootMargin: "0px 0px -50% 0px" }
     );
 
-    const targets = Array.from(document.querySelectorAll("h2, h3"));
+    const targets = Array.from(document.querySelectorAll("h2, h3, #Information"));
     targets.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    // **스크롤 맨 위면 강제로 Information 활성화**
+    const handleScroll = () => {
+      if (window.scrollY < 40) {
+        setActive("Information");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return active;
