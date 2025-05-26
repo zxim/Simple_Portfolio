@@ -52,7 +52,7 @@ const SKILLS = {
     { name: "Apache", level: "중", icon: SiApache },
     { name: "Nginx", level: "하", icon: SiNginx },
   ],
-  DevSecOps: [
+  DevOps: [
     { name: "AWS EC2", level: "상", icon: FaAws },
     { name: "AWS S3", level: "상", icon: FaAws },
     { name: "AWS ALB", level: "상", icon: FaAws },
