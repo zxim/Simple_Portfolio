@@ -14,6 +14,7 @@ import {
   FaShieldAlt,
   FaEye,
   FaNetworkWired,
+  FaServer,
 } from "react-icons/fa";
 import {
   SiTypescript,
@@ -22,6 +23,8 @@ import {
   SiVercel,
   SiUbuntu,
   SiDocker,
+  SiNginx,
+  SiApache,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -44,6 +47,10 @@ const SKILLS = {
     { name: "React", level: "중", icon: FaReact },
     { name: "Next.js", level: "하", icon: SiNextdotjs },
     { name: "Tailwind CSS", level: "하", icon: SiTailwindcss },
+  ],
+  웹서버: [
+    { name: "Apache", level: "중", icon: SiApache },
+    { name: "Nginx", level: "하", icon: SiNginx },
   ],
   데브섹옵스: [
     { name: "AWS EC2", level: "상", icon: FaAws },
@@ -74,6 +81,7 @@ const LEVEL_BADGE = {
 const 분야_목록: { name: string; icon: IconType }[] = [
   { name: "언어", icon: FaKeyboard },
   { name: "프레임워크", icon: FaReact },
+  { name: "웹서버", icon: FaServer },
   { name: "데브섹옵스", icon: FaAws },
   { name: "운영체제", icon: FaLinux },
   { name: "보안", icon: FaShieldAlt },
