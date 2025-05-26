@@ -14,7 +14,6 @@ import {
   FaShieldAlt,
   FaEye,
   FaNetworkWired,
-  FaBug,
 } from "react-icons/fa";
 import {
   SiTypescript,
