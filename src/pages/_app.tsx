@@ -11,7 +11,7 @@ import * as gtag from "../lib/gtag";
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
 const DEFAULT_SEO = {
-  title: "심민 | Front-End Dev",
+  title: "심민의 포트폴리오",
   description: "안녕하세요, 프론트엔드 개발자 심민입니다.",
   canonical: "https://zxim.vercel.app/",
   openGraph: {
