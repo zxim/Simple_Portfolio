@@ -11,9 +11,6 @@ import {
   FaAws,
   FaKeyboard,
   FaLinux,
-  FaShieldAlt,
-  FaEye,
-  FaNetworkWired,
   FaServer,
 } from "react-icons/fa";
 import {
@@ -65,11 +62,6 @@ const SKILLS = {
     { name: "Ubuntu", level: "중", icon: SiUbuntu },
     { name: "Kali Linux", level: "하", icon: FaLinux },
   ],
-  Security: [
-    { name: "Suricata", level: "중", icon: FaShieldAlt },
-    { name: "Wireshark", level: "중", icon: FaEye },
-    { name: "Burp Suite", level: "하", icon: FaNetworkWired },
-  ],
 } as const;
 
 const LEVEL_BADGE = {
@@ -84,7 +76,6 @@ const CATEGORY_LIST: { name: keyof typeof SKILLS; icon: IconType }[] = [
   { name: "WebServer", icon: FaServer },
   { name: "DevOps", icon: FaAws },
   { name: "OS", icon: FaLinux },
-  { name: "Security", icon: FaShieldAlt },
 ];
 
 type Category = keyof typeof SKILLS;
