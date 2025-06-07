@@ -137,6 +137,17 @@
       "isTeam": false,
       "period": ["2025. 04", "진행중"],
       "stack": ["TypeScript", "Vite", "Chrome Extension API", "Web TTS"]
+    },
+     {
+      "id": 10,
+      "name": "Mind Space",
+      "imageCount": 1,
+      "description": "마인드 맵 형태의 ERP 제작",
+      "webUrl": "https://velog.io/@tlaals44/Mind-Space",
+      "repoUrl": "https://github.com/orgs/MindSpace-Team/repositories",
+      "isTeam": true,
+      "period": ["2025. 05", "진행중"],
+      "stack": ["TypeScript", "Next.js", "React", "Java", "Spring", "MySQL", "MongoDB"]
     }
   ],
 
